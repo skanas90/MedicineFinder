@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Finder</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   
+</head>
+<body>
+    <!-- Updated Header Section -->
+    <header>
+        <h1>
+            <img src="../static/medical-history.png" alt="logo" style="width: 40px;">
+            Medicine Finder
+        </h1>
+
+        <!-- Navigation and Sign In Button -->
+        <div class="nav-right">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="/login" class="sign-in">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Main Content (Medicine Finder Form) -->
+    <section class="search-section">
+        <h2>Find Your Medicine</h2>
+        <p>Find the medicines you need from nearby medical stores.</p>
+        
+        <form action="/search" method="POST" id="medicine-form">
+            <div class="input-row">
+                <input type="text" class="form-control" placeholder="Enter medicine name" name="medicine" required>
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search Medicines</button>
+        </form>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="blog-card">
+            <h3>A Guide to Common Over-the-Counter Medicines</h3>
+            <p>Learn about commonly used over-the-counter medicines and when to consult a doctor. Discover uses, dosages, and safety tips for Paracetamol, Ibuprofen, and more.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+            <h3>Best Practices for Storing Medicines at Home</h3>
+            <p>Find out how to safely store your medicines at home to keep them effective and prevent accidents. Learn tips for storage and safe disposal of expired medicines.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="blog-card">
+            <h3>Why Consulting Your Pharmacist Is Important</h3>
+            <p>Your pharmacist can do more than just fill prescriptions! Learn why it's essential to consult them for advice on medications, dosage, side effects, and interactions.</p>
+            <a href="#">Read More</a>
+        </div>
+    </section>
+
+    <!-- JavaScript to get the user's location -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    document.getElementById('latitude').value = position.coords.latitude;
+                    document.getElementById('longitude').value = position.coords.longitude;
+                }, function(error) {
+                    alert("Error getting location: " + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+</body>
+</html>

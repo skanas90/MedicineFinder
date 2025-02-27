@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+
+    <!-- Link to Material Symbols and CSS files -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search-results.css') }}">
+</head>
+<body>
+
+<div class="search-results-container">
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-content">
+            <!-- Medical Services icon before "Search Results" text -->
+            <i class="material-symbols-outlined search-result-icon">medical_services</i>
+            <h1>Search Results for "{{ medicine }}"</h1>
+        </div>
+        <div class="store-info">
+            <span class="store-count">{{ pharmacies|length }} Stores Found</span>
+        </div>
+    </div>
+
+    <!-- Pharmacy Cards Grid -->
+    <div class="pharmacy-grid">
+        {% if pharmacies %}
+            {% for entry in pharmacies %}
+            <div class="pharmacy-card">
+                <div class="pharmacy-header">
+                    <h2 class="pharmacy-name">{{ entry.pharmacy.name }}</h2>
+                    <span class="icon material-symbols-outlined">local_pharmacy</span>
+                </div>
+                <p class="pharmacy-address">{{ entry.pharmacy.address }}</p>
+
+                <!-- Replace Timings text with clock icon -->
+                <p class="pharmacy-timings">
+                    <i class="material-symbols-outlined">schedule</i>
+                    {{ entry.pharmacy.timings or 'N/A' }}
+                </p>
+
+                <!-- Replace Contact text with phone icon -->
+                <p class="pharmacy-contact">
+                    <i class="material-symbols-outlined">call</i>
+                    <a href="tel:{{ entry.pharmacy.contact_number }}" class="contact-link">{{ entry.pharmacy.contact_number }}</a>
+                </p>
+
+                <!-- Display the searched medicine dynamically -->
+                <p class="pharmacy-availability">
+                    <i class="material-symbols-outlined">medication</i>
+                    {{ medicine }}
+                 </p>
+                
+
+                <!-- Display distance before Get Directions button -->
+                <p class="pharmacy-distance">
+                    <i class="material-symbols-outlined">location_on</i>
+                    {{ entry.distance }} km away
+                </p>
+
+                <!-- Get Directions link -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination={{ entry.pharmacy.address|urlencode }}" target="_blank" class="get-directions-link">Get Directions</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No stores found for "{{ medicine }}"</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

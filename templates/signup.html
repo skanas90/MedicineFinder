@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"> <!-- Include MDB CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script> <!-- Include MDB JS -->
+    <style>
+        /* Google Font for a better look */
+        @import url('https://rsms.me/inter/inter-ui.css');
+
+        /* General body styling with background image */
+        body {
+            background-image: url('../static/freepik__adjust__97071.jpg'); /* Set your background image URL here */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Inter UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container styling with semi-transparent background */
+        .container {
+            width: 100%;
+            max-width: 400px; /* Standard size for the signup form */
+            background-color: rgba(255, 255, 255, 0.8); /* White with opacity to make it semi-transparent */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Text alignment and margins */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Signup Form -->
+        <form action="/signup" method="POST"> <!-- Form action points to the signup route -->
+            
+            <!-- Username input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="username" name="username" class="form-control" required />
+                <label class="form-label" for="username">Username</label>
+            </div>
+
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="password" name="password" class="form-control" required />
+                <label class="form-label" for="password">Password</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
+
+            <!-- Login Redirect -->
+            <div class="text-center">
+                <p>Already signed up? <a href="/login">Login</a></p> <!-- Redirect to the login page -->
+            </div>
+
+            <!-- Register buttons (optional social logins) -->
+            <div class="text-center">
+                <p></p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

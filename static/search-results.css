@@ -1,0 +1,145 @@
+/* General container styling */
+.search-results-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #fff, rgba(240, 255, 240, 0.3));
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #e6fff2;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: 0; /* Ensure no extra margin pushing things around */
+}
+
+.search-result-icon {
+    color: #34d399; /* Apply the green theme */
+    font-size: 36px;
+    margin-right: 10px; /* Spacing between icon and text */
+    display: inline-block; /* Ensure it stays inline with text */
+    vertical-align: middle; /* Aligns the icon in the middle of the text line */
+}
+
+
+.store-info .store-count {
+    background-color: #34d399;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Pharmacy card grid layout */
+.pharmacy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pharmacy-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.pharmacy-card:hover {
+    transform: scale(1.05);
+}
+
+/* Pharmacy card content */
+.pharmacy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Pharmacy name */
+.pharmacy-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Pharmacy icon with green theme */
+.pharmacy-header .icon {
+    color: #34d399; /* Apply the green theme */
+    font-size: 36px;
+}
+
+.pharmacy-address,
+.pharmacy-timings,
+.pharmacy-contact,
+.pharmacy-availability {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Aligning icons and text */
+.pharmacy-timings,
+.pharmacy-contact,
+.pharmacy-availability {
+    display: flex;
+    align-items: center;
+}
+
+.pharmacy-timings i,
+.pharmacy-contact i,
+.pharmacy-availability i {
+    margin-right: 8px;
+    color: #34d399;
+    font-size: 24px;
+}
+
+/* Contact link styling */
+.contact-link {
+    color: #34d399;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.get-directions-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #34d399;
+    text-decoration: none;
+}
+
+.get-directions-link:hover {
+    text-decoration: underline;
+}
+
+.pharmacy-distance {
+    display: flex;
+    align-items: center;
+}
+
+.pharmacy-distance .material-symbols-outlined {
+    color: #34d399;
+    margin-right: 5px; /* Spacing between icon and text */
+}

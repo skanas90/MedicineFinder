@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Medicine Finder</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6fff2;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background: #3DD680; /* Vibrant green for header */
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Top corners rectangular, bottom corners semi-circular */
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure header stays on top of the content */
+        }
+        
+        /* Push the rest of the content down to avoid overlap with header */
+        .container {
+            margin-top: 150px; /* Adjust according to header height */
+        }
+        
+        /* Logo and text in the header */
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+        }
+        
+        header h1 img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        
+        /* Navigation and Sign In button */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        header .sign-in {
+            background-color: white;
+            color: #3DD680;
+            border-radius: 20px;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+
+        /* Content Section */
+        .container {
+            margin: 150px auto;
+            max-width: 900px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #34d399;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        ul.list-group {
+            margin-top: 20px;
+        }
+
+        ul.list-group li {
+            background-color: #e6fffa;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 8px;
+            color: #333;
+            border: 1px solid #d1fae5;
+        }
+
+        ul.list-group li strong {
+            color: #34d399;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                margin: 20px 10px;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Original Header -->
+    <header>
+        <h1>
+            <img src="../static/medical-history.png" alt="logo" style="width: 40px;">
+            Medicine Finder
+        </h1>
+
+        <!-- Navigation and Sign In Button -->
+        <div class="nav-right">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="/login" class="sign-in">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>About Medicine Finder</h2>
+        <p><strong>Medicine Finder</strong> is your one-stop solution for locating essential medicines and medical supplies from nearby pharmacies. Whether you're in urgent need of over-the-counter drugs or prescription medications, our platform is designed to simplify the process of finding the right medicine, at the right place, and at the right time.</p>
+        
+        <h3>Our Mission</h3>
+        <p>At Medicine Finder, our mission is to ensure that everyone has access to critical medicines and healthcare products easily and quickly. We understand that in times of need, finding the right pharmacy with the right medicine can be overwhelming. We aim to bridge that gap by connecting you with local pharmacies in just a few clicks.</p>
+        
+        <h3>What We Offer</h3>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Comprehensive Search</strong>: Search for a wide range of medicines available at nearby pharmacies.
+            </li>
+            <li class="list-group-item">
+                <strong>Location-Based Results</strong>: Find pharmacies closest to your location, ensuring convenience and faster access to essential medicines.
+            </li>
+            <li class="list-group-item">
+                <strong>Up-to-Date Availability</strong>: Stay informed about which medicines are in stock and ready for pick-up.
+            </li>
+            <li class="list-group-item">
+                <strong>Mobile-Friendly Interface</strong>: Access Medicine Finder on any device, from smartphones to desktops, making it easier for you to find the medicines you need, wherever you are.
+            </li>
+        </ul>
+        
+        <h3>Why Choose Medicine Finder?</h3>
+        <p>At Medicine Finder, we are committed to making healthcare more accessible, one search at a time.</p>
+    </div>
+</body>
+</html>
